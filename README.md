@@ -82,3 +82,5 @@ Train a Logistic Regression model, track experiments with MLflow, version data a
 
 ## Some screen shot for reference
 ![image](https://github.com/user-attachments/assets/0a81b5c9-6f7f-4e25-aa79-056b18bef3f9)
+![image](https://github.com/user-attachments/assets/816b7398-187b-447f-be21-79f714237ad8)
+
