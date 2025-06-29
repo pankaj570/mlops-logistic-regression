@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: logistic-regression-service
+spec:
+  selector:
+    app: logistic-regression
+  ports:
+    - protocol: TCP
+      port: 80 # External port for the service
+      targetPort: 5000 # Port on which your container's app is listening
+  type: LoadBalancer # Use LoadBalancer for cloud, NodePort or ClusterIP for local testing

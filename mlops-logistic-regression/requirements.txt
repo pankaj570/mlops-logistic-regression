@@ -1,0 +1,7 @@
+# requirements.txt
+mlflow
+scikit-learn
+pandas
+dvc
+gunicorn
+flask

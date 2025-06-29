@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logistic-regression-deployment
+  labels:
+    app: logistic-regression
+spec:
+  replicas: 1 # Start with 1 replica, can scale up based on load
+  selector:
+    matchLabels:
+      app: logistic-regression
+  template:
+    metadata:
+      labels:
+        app: logistic-regression
+    spec:
+      containers:
+      - name: logistic-regression-app
+        image: logistic-regression-model:latest # Your Docker image name
+        imagePullPolicy: Never # Use Never for local images, PullAlways for registry images (e.g., Docker Hub)
+        ports:
+        - containerPort: 5000
+        env:
+        - name: MLFLOW_MODEL_URI
+          # IMPORTANT: Replace with the actual MLflow Model URI
+          # Example: "runs:/d8e7f6a5b4c3d2e1f0a9b8c7d6e5f4a3/logistic_regression_model"
+          # Or if using MLflow Model Registry: "models:/IrisLogisticRegression/Production"
+          value: "runs:/65ac67f1248b40b88acce08557cdae88/logistic_regression_model"
+        # Optional: Add resource limits/requests for production
+        # resources:
+        #   requests:
+        #     memory: "128Mi"
+        #     cpu: "100m"
+        #   limits:
+        #     memory: "256Mi"
+        #     cpu: "200m"
